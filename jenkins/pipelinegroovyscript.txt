@@ -1,0 +1,45 @@
+pipeline { 
+    agent any 
+  
+    stages { 
+        stage('Checkout') { 
+            steps { 
+                git 'https://github.com/swargamramya11/playwrightFixuresFramework.git' 
+            } 
+        } 
+  
+        stage('Install Dependencies') { 
+            steps { 
+                bat 'npm install' 
+                bat 'npm install -D allure-playwright' 
+                bat 'npm install -g allure-commandline --force' 
+            } 
+        } 
+  
+        stage('Run Tests') { 
+            steps { 
+                bat 'npx playwright install' 
+                //bat 'set ENV = local'
+                bat 'npm run "%script%"' 
+            } 
+        } 
+  
+        stage('Generate Allure Report') { 
+            steps { 
+                bat 'allure generate reports/allure-results --clean -o reports/allure-report' 
+            } 
+        } 
+    } 
+  
+    post { 
+        always { 
+            // Archive test results (if any) 
+            archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: true 
+  
+            // Publish Allure results (if plugin is installed) 
+            allure includeProperties: false, 
+                   jdk: '', 
+                   results: [[path: 'reports/allure-results']] 
+        } 
+    } 
+}
