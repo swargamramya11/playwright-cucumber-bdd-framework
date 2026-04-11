@@ -11,5 +11,5 @@ npm install faker@5
 npm install dotenv
 
 Run commands
-$env:BROWSER="chrome";$env:ENV="rsa"; npx cucumber-js --tags "@errors"
+$env:BROWSER="chrome";$env:ENV="rsa"; npx cucumber-js --tags "@smoke"
 $env:ENV="local";npm run test:run
