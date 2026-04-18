@@ -1,5 +1,4 @@
 import { Page, expect, Locator } from '@playwright/test'
-import { pageFixture } from '../hooks/pageFixtures';
 
 export default class LoginPage {
   private readonly page: Page;

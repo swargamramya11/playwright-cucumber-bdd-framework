@@ -1,9 +1,9 @@
 import { Before, After, BeforeAll, AfterAll, setDefaultTimeout, Status, AfterStep, BeforeStep } from '@cucumber/cucumber';
 import { Browser, BrowserContext } from "@playwright/test"
-import { pageFixture } from './pageFixtures';
-import { config } from '../helper/env/envLoader';
-import { invokeBrowser } from "../helper/utils/browserManager";
-import { AllureReport } from "../helper/utils/allureReport";
+import { pageFixture } from '../../helper/utils/pageFixtures';
+import { config } from './envLoader';
+import { invokeBrowser } from "./browserManager";
+import { AllureReport } from "./allureReport";
 
 let browser: Browser
 let context: BrowserContext

@@ -1,6 +1,6 @@
 import { Given, When, Then, DataTable } from '@cucumber/cucumber';
 import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../hooks/pageFixtures';
+import { pageFixture } from '../../helper/utils/pageFixtures';
 import { RegistrationPage } from '../../pages/RegistrationPage';
 import { ReusableMethods } from '../../helper/utils/reusableMethods';
 import { CommonMethods } from '../../pages/CommonMethods';

@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { DataProvider } from '../../helper/utils/dataproviders'
 import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../hooks/pageFixtures';
+import { pageFixture } from '../../helper/utils/pageFixtures';
 import { ReusableMethods } from '../../helper/utils/reusableMethods'
 
 const jsonPath = 'testdata/logindata.json'

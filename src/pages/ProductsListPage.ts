@@ -1,5 +1,4 @@
 import { Page, expect, Locator } from '@playwright/test'
-import { DataProvider } from '../helper/utils/dataproviders';
 
 export class ProductsListPage {
   private readonly page: Page;

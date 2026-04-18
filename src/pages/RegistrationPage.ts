@@ -1,5 +1,5 @@
 import { Page, expect, Locator } from '@playwright/test'
-import { pageFixture } from '../hooks/pageFixtures';
+import { pageFixture } from '../helper/utils/pageFixtures';
 
 export class RegistrationPage {
     private readonly page: Page;
