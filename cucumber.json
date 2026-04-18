@@ -22,7 +22,7 @@
             "json:test-results/reports/html-report.json",
             "rerun:@rerun.txt"
         ],
-        "parallel": 1,
+        "parallel": 0,
         "retry": 0
     },
     "rerun": {
