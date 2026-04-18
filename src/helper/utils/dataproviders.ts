@@ -5,12 +5,12 @@ import * as XLSX from 'xlsx';
 export class DataProvider {
 
     static getTestDataFromJson(filePath: string) {
-        const data: any = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+        const data: any = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
         return data
     }
 
     static getDataFromCSV(filePath: string) {
-        const data = parse(fs.readFileSync(filePath, 'utf8'), { columns: true, skip_empty_lines: true })
+        const data: any = parse(fs.readFileSync(filePath, 'utf-8'), { columns: true, skip_empty_lines: true, trim: true })
         return data
     }
 
@@ -24,7 +24,7 @@ export class DataProvider {
 
         //convert sheet into json
         const loginData: any = XLSX.utils.sheet_to_json(worksheet);
-        console.log(loginData);
+        return loginData
     }
 
     static writeDataToXLSX(filePath: string, sheetName: string, productName: any[]) {

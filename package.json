@@ -17,6 +17,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.11.2",
     "@cucumber/cucumber": "^12.7.0",
     "csv-parse": "^6.2.1",
     "dotenv": "^16.6.1",

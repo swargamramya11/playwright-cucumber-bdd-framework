@@ -16,7 +16,7 @@ export class RegistrationPage {
     private readonly successMessage: Locator;
     private readonly login: Locator;
 
-    constructor(page: Page,) {
+    constructor(page: Page) {
         this.page = page
 
         this.registerHere = page.getByText('Register here')

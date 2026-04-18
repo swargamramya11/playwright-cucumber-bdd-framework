@@ -9,7 +9,9 @@ npm install xlsx
 npm install csv-parse
 npm install faker@5
 npm install dotenv
+npm install @axe-core/playwright
 
 Run commands
+Command to run with filename: $env:ENV="local";npx playwright test tests/Login.spec.ts
 $env:BROWSER="chrome";$env:ENV="rsa"; npx cucumber-js --tags "@smoke"
 $env:ENV="local";npm run test:run
