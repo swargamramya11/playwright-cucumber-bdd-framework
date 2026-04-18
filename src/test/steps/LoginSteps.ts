@@ -1,39 +1,33 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { DataProvider } from '../../../src/utils/dataproviders'
-import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../../src/utils/pageFixtures';
 import { ReusableMethods } from '../../../src/utils/reusableMethods';
+import { CustomWorld } from '../../utils/world';
 
 const jsonPath = 'src/resources/testdata/uitestdata/logindata.json'
 const data = DataProvider.getTestDataFromJson(jsonPath)
 
-Given('Login to rahulsetty website with {string} and {string}', async function (email, password) {
+Given('Login to rahulsetty website with {string} and {string}', async function (this: CustomWorld, email, password) {
     for (const dataset of data) {
-        let loginPage = new LoginPage(pageFixture.page);
-        await loginPage.enterEmail(dataset.email)
-        await loginPage.enterPassword(dataset.password)
-        await loginPage.clickLogin()
+        await this.loginPage.enterEmail(dataset.email)
+        await this.loginPage.enterPassword(dataset.password)
+        await this.loginPage.clickLogin()
     }
 })
 
-Given('I enter email as {string}', async function (email) {
-    let loginPage = new LoginPage(pageFixture.page);
-
-    if(email.includes("Registered")) {
-        email = pageFixture.data.email
+Given('I enter email as {string}', async function (this: CustomWorld, email) {
+    if (email.includes("Registered")) {
+        email = this.testdata.email
     } else {
-         email = ReusableMethods.getProperty(email)
+        email = ReusableMethods.getProperty(email)
     }
-    await loginPage.enterEmail(email)
+    await this.loginPage.enterEmail(email)
 })
 
-Given('I enter password as {string}', async function (password) {
-    let loginPage = new LoginPage(pageFixture.page);
-
-    if(password.includes("Registered")) {
-        password = pageFixture.data.password
-    }else {
-         password = ReusableMethods.getProperty(password)
+Given('I enter password as {string}', async function (this: CustomWorld, password) {
+    if (password.includes("Registered")) {
+        password = this.testdata.password
+    } else {
+        password = ReusableMethods.getProperty(password)
     }
-    await loginPage.enterPassword(password)
+    await this.loginPage.enterPassword(password)
 })

@@ -1,4 +1,3 @@
-import { LaunchOptions, chromium, firefox, webkit } from "@playwright/test";
 import fs from 'fs';
 import { execSync } from 'child_process';
 

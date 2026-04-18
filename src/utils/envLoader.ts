@@ -8,7 +8,7 @@ dotenv.config({
     path: path.resolve(process.cwd(), `src/resources/env/${env}.env`)
 });
 
-export const config = {
+export const envLoader = {
     URL: process.env.URL!,
     EMAIL: process.env.EMAIL!,
     PASSWORD: process.env.PASSWORD!,

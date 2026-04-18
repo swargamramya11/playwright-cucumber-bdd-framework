@@ -1,49 +1,44 @@
 import { Given, When, Then, DataTable } from '@cucumber/cucumber';
-import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../../src/utils/pageFixtures';
+import { CustomWorld } from '../../utils/world';
 import { RandomDataUtil } from '../../../src/utils/randomDataGenerator';
-import { RegistrationPage } from '../../pages/RegistrationPage';
 import { ReusableMethods } from '../../../src/utils/reusableMethods';
 
-let registrationPage: RegistrationPage
-let loginPage: LoginPage
-
-Given('I enter below fields in user registration Page', async function (dataTable: DataTable) {
-    registrationPage = new RegistrationPage(pageFixture.page)
-    loginPage = new LoginPage(pageFixture.page)
-
+Given('I enter below fields in user registration Page', async function (this: CustomWorld, dataTable: DataTable) {
     let password = RandomDataUtil.getPassword()
+    this.testdata.password = password
     const data = dataTable.hashes()
 
     for (const row of data) {
         for (const field in row) {
             switch (field) {
                 case "First Name":
-                    await registrationPage.enterFirstName(RandomDataUtil.getFirstName())
+                    await this.registrationPage.enterFirstName(RandomDataUtil.getFirstName())
                     break;
                 case "Last Name":
-                    await registrationPage.enterLastName(RandomDataUtil.getLastName())
+                    await this.registrationPage.enterLastName(RandomDataUtil.getLastName())
                     break;
                 case "Email":
-                    await registrationPage.enterEmail(RandomDataUtil.getEmail())
+                    const email = RandomDataUtil.getEmail()
+                    await this.registrationPage.enterEmail(email)
+                    this.testdata.email = email
                     break;
                 case "Phone Number":
-                    await registrationPage.enterPhoneNumber(RandomDataUtil.getPhoneNumber())
+                    await this.registrationPage.enterPhoneNumber(RandomDataUtil.getPhoneNumber())
                     break;
                 case "Occupation":
-                    await registrationPage.enterOccupation("Doctor")
+                    await this.registrationPage.enterOccupation("Doctor")
                     break;
                 case "Gender":
-                    await registrationPage.checkGender('Female')
+                    await this.registrationPage.checkGender('Female')
                     break;
                 case "Password":
-                    await registrationPage.enterPassword(password)
+                    await this.registrationPage.enterPassword(password)
                     break;
                 case "Confirm Password":
-                    await registrationPage.enterConfirmPassword(password)
+                    await this.registrationPage.enterConfirmPassword(password)
                     break;
                 case "18 year older":
-                    await registrationPage.check18YearOld()
+                    await this.registrationPage.check18YearOld()
                     break;
                 default:
                     throw new Error('unsupported field')
@@ -53,7 +48,5 @@ Given('I enter below fields in user registration Page', async function (dataTabl
 })
 
 Given('Verify success message after registration', async function () {
-    registrationPage = new RegistrationPage(pageFixture.page)
-    loginPage = new LoginPage(pageFixture.page);
-    await registrationPage.verifySuccessMessage(ReusableMethods.getProperty("REGISTRATIONSUCCESSMESSAGE"))
+    await this.registrationPage.verifySuccessMessage(ReusableMethods.getProperty("REGISTRATIONSUCCESSMESSAGE"))
 })

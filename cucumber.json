@@ -10,6 +10,7 @@
         "dryRun": false,
         "require": [
             "src/utils/envLoader.ts",
+            "src/utils/world.ts",
             "src/test/steps/*.ts",
             "src/utils/hooks.ts"
         ],

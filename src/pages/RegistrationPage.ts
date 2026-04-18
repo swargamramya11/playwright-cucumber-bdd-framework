@@ -1,5 +1,4 @@
 import { Page, expect, Locator } from '@playwright/test'
-import { pageFixture } from '../../src/utils/pageFixtures';
 
 export class RegistrationPage {
     private readonly page: Page;
@@ -15,6 +14,7 @@ export class RegistrationPage {
     private readonly register: Locator;
     private readonly successMessage: Locator;
     private readonly login: Locator;
+    private testdata:any={}
 
     constructor(page: Page) {
         this.page = page
@@ -47,7 +47,6 @@ export class RegistrationPage {
 
     async enterEmail(email: string) {
         await this.email.fill(email)
-        pageFixture.data.email = email
     }
 
     async enterPhoneNumber(phoneNumber: string) {
@@ -64,7 +63,6 @@ export class RegistrationPage {
 
     async enterPassword(password: string) {
         await this.password.fill(password)
-        pageFixture.data.password = password
     }
 
     async enterConfirmPassword(confirmPassword: string) {
