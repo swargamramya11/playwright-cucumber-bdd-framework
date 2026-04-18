@@ -1,8 +1,8 @@
 import { Given, When, Then, DataTable } from '@cucumber/cucumber';
 import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../helper/utils/pageFixtures';
+import { pageFixture } from '../../../src/utils/pageFixtures';
 import { RegistrationPage } from '../../pages/RegistrationPage';
-import { ReusableMethods } from '../../helper/utils/reusableMethods';
+import { ReusableMethods } from '../../../src/utils/reusableMethods';
 import { CommonMethods } from '../../pages/CommonMethods';
 
 let registrationPage: RegistrationPage

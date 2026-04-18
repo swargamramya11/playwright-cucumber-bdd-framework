@@ -1,12 +1,12 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { ProductsListPage } from '../../pages/ProductsListPage';
-import { pageFixture } from '../../helper/utils/pageFixtures';
-import { DataProvider } from '../../helper/utils/dataproviders';
+import { pageFixture } from '../../../src/utils/pageFixtures';
+import { DataProvider } from '../../../src/utils/dataproviders';
 
 Given('Get products list and print in excel sheet', async function () {
     let productsListPage = new ProductsListPage(pageFixture.page)
 
     let data: any[] = await productsListPage.getProductsList()
     console.log(data)
-    DataProvider.writeDataToXLSX('testdata/ProductsList.xlsx', 'Products', data)
+    DataProvider.writeDataToXLSX('src/resources/testdata/uitestdata/ProductsList.xlsx', 'Products', data)
 });  

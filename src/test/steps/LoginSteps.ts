@@ -1,10 +1,10 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { DataProvider } from '../../helper/utils/dataproviders'
+import { DataProvider } from '../../../src/utils/dataproviders'
 import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../helper/utils/pageFixtures';
-import { ReusableMethods } from '../../helper/utils/reusableMethods'
+import { pageFixture } from '../../../src/utils/pageFixtures';
+import { ReusableMethods } from '../../../src/utils/reusableMethods';
 
-const jsonPath = 'testdata/logindata.json'
+const jsonPath = 'src/resources/testdata/uitestdata/logindata.json'
 const data = DataProvider.getTestDataFromJson(jsonPath)
 
 Given('Login to rahulsetty website with {string} and {string}', async function (email, password) {

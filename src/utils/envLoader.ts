@@ -5,7 +5,7 @@ const env = process.env.ENV || 'rsa';
 
 // load correct file
 dotenv.config({
-    path: path.resolve(process.cwd(), `src/helper/env/${env}.env`)
+    path: path.resolve(process.cwd(), `src/resources/env/${env}.env`)
 });
 
 export const config = {

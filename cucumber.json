@@ -9,9 +9,9 @@
         ],
         "dryRun": false,
         "require": [
-            "src/helper/utils/envLoader.ts",
+            "src/utils/envLoader.ts",
             "src/test/steps/*.ts",
-            "src/helper/utils/hooks.ts"
+            "src/utils/hooks.ts"
         ],
         "requireModule": [
             "ts-node/register"

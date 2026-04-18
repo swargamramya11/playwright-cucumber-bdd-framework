@@ -1,9 +1,9 @@
 import { Given, When, Then, DataTable } from '@cucumber/cucumber';
 import LoginPage from '../../pages/LoginPage'
-import { pageFixture } from '../../helper/utils/pageFixtures';
-import { RandomDataUtil } from '../../helper/utils/randomDataGenerator';
+import { pageFixture } from '../../../src/utils/pageFixtures';
+import { RandomDataUtil } from '../../../src/utils/randomDataGenerator';
 import { RegistrationPage } from '../../pages/RegistrationPage';
-import { ReusableMethods } from '../../helper/utils/reusableMethods';
+import { ReusableMethods } from '../../../src/utils/reusableMethods';
 
 let registrationPage: RegistrationPage
 let loginPage: LoginPage
